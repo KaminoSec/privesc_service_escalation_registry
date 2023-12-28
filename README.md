@@ -15,7 +15,7 @@ PS C:\Users\user> Get-Acl -Path hklm:\System\CurrentControlSet\services\regsvc |
 
 - Notice that the output suggests that user belong to “`NT AUTHORITY\INTERACTIVE`” has “`FullContol`” permission over the registry key.
 
-![get_acl](privesc_service_escalation_registry\images\get_acl.png)
+![get_acl](..\images\get_acl.png)
 
 ## Step 2: Transfer File
 
