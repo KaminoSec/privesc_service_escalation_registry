@@ -6,8 +6,6 @@
 
 ## Step 1: Detection
 
----
-
 - Open PowerShell prompt and type: **`Get-Acl -Path hklm:\System\CurrentControlSet\services\regsvc | fl`**
 
 ```jsx
@@ -20,8 +18,6 @@ PS C:\Users\user> Get-Acl -Path hklm:\System\CurrentControlSet\services\regsvc |
 ![get_acl](get_acl.png)
 
 ## Step 2: Transfer File
-
----
 
 - Start FTP server on port 21 and allow `write` access
 
@@ -41,7 +37,7 @@ PS C:\Users\user> Get-Acl -Path hklm:\System\CurrentControlSet\services\regsvc |
 
 - Open terminal in the directory where `windows_service.c` is located
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/234bc2e7-af11-462d-b119-18d130c204a1/65ca83da-52b3-4934-8525-232a550de04d/Untitled.png)
+![source](source.png)
 
 - Copy ‘`C:\Users\User\Desktop\Tools\Source\windows_service.c`’ to the attack machine
 
